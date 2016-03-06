@@ -14,10 +14,10 @@ void main() {
   	vec2 st = gl_FragCoord.xy/u_resolution;
 
     // This represents the function to be plotted.
-    float y = pow(st.x, 5.0);
+    float y = smoothstep(0.2, 0.5, st.x) - smoothstep(0.5, 0.8, st.x);
 
     // Set part of the resultant color to all three components
-    // being equal to the normalized x-value.
+    // being equal to the y value.
     vec3 color = vec3(y);
     
     // Compute the coefficient of the color correspondent
